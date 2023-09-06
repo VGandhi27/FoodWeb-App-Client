@@ -2,12 +2,13 @@ import React from 'react'
 import {useState,useEffect,useContext}from 'react'
 import {UserContext} from '../../App'
 import { Link} from 'react-router-dom'
+const host="https://foodwebapp-backened.onrender.com";
 
 const Home=()=> {
    const [data,setData]=useState([])
    const {state,dispatch}=useContext(UserContext)
    useEffect(()=>{
-    fetch('/allpost',{
+    fetch(`${host}/allpost`,{
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
       }
@@ -19,7 +20,7 @@ const Home=()=> {
    },[])
 
    const likePost = (id)=>{
-    fetch('/like',{
+    fetch(`${host}/like`,{
         method:"put",
         headers:{
             "Content-Type":"application/json",
@@ -44,7 +45,7 @@ const Home=()=> {
     })
 }
 const unlikePost = (id)=>{
-  fetch('/unlike',{
+  fetch(`${host}/unlike`,{
       method:"put",
       headers:{
           "Content-Type":"application/json",
