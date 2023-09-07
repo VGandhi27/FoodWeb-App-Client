@@ -11,7 +11,8 @@ const Cart = () => {
      useEffect(()=>{
         fetch('/mypost',{
             headers:{
-                "Authorization":"Bearer "+localStorage.getItem("jwt")
+                "Authorization":"Bearer "+localStorage.getItem("jwt"),
+                'Access-Control-Allow-Origin': '*'
             }
         }).then(res=>res.json())
         .then(result=>{
@@ -25,7 +26,8 @@ const Cart = () => {
             method:"put",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":"Bearer "+localStorage.getItem("jwt")
+                "Authorization":"Bearer "+localStorage.getItem("jwt"),
+                'Access-Control-Allow-Origin': '*'
             },
             body:JSON.stringify({
                 postId:id

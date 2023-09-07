@@ -26,7 +26,8 @@ const PostData =()=>{
   fetch(`${host}/signup`,{
     method:"post",
     headers:{
-      "Content-Type":"application/json"
+      "Content-Type":"application/json",
+      'Access-Control-Allow-Origin': '*'
     },
     body:JSON.stringify({
       name,
